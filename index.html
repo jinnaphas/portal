@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Precise Portal</title>
+  <meta name="description" content="ศูนย์รวมลิงก์ ระบบงาน และข้อมูลสำคัญขององค์กร">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect x='2' y='18' width='9' height='16' rx='3' fill='%23F58220'/%3E%3Crect x='13.5' y='10' width='9' height='24' rx='3' fill='%233DAE49'/%3E%3Crect x='25' y='2' width='9' height='32' rx='3' fill='%230067B1'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-skip>ข้ามไปยังเนื้อหา</a>
+
+  <!-- โลโก้สามสี (ใช้เมื่อยังไม่ได้ใส่ไฟล์โลโก้จริงใน data/portal-data.js) -->
+  <template id="brand-mark-tpl">
+    <svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true">
+      <rect class="b1" x="2" y="18" width="9" height="16" rx="3"/>
+      <rect class="b2" x="13.5" y="10" width="9" height="24" rx="3"/>
+      <rect class="b3" x="25" y="2" width="9" height="32" rx="3"/>
+    </svg>
+  </template>
+
+  <div class="topbar-stripe" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" id="brand" href="#/"></a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-open-search aria-label="ค้นหา (กด /)">
+          <span data-icon="search" data-size="19"></span>
+          <span class="search-trigger-text">ค้นหาหมวดหมู่หรือลิงก์…</span>
+          <kbd>/</kbd>
+        </button>
+        <a class="icon-btn" id="fav-btn" href="#/favorites" aria-label="รายการโปรด" title="รายการโปรด">
+          <span data-icon="star" data-size="20"></span>
+          <span class="badge-count" id="fav-count" hidden>0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <noscript>
+      <div class="container" style="padding:48px 24px">กรุณาเปิดใช้งาน JavaScript เพื่อใช้งาน Portal</div>
+    </noscript>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand"><span id="footer-mark"></span><span id="footer-copy"></span></div>
+      <div class="footer-links">
+        <span id="footer-note"></span>
+        <a href="#/favorites">รายการโปรด</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ค้นหา (Command Palette) -->
+  <div class="palette" id="palette" hidden>
+    <div class="palette-backdrop" data-close></div>
+    <div class="palette-panel" role="dialog" aria-modal="true" aria-label="ค้นหาใน Portal">
+      <div class="palette-input-wrap">
+        <span data-icon="search" data-size="22"></span>
+        <input id="palette-input" type="text" autocomplete="off" spellcheck="false"
+               placeholder="พิมพ์เพื่อค้นหา เช่น OKR, สวัสดิการ, AI Agent…"
+               role="combobox" aria-expanded="true" aria-controls="palette-list" aria-autocomplete="list">
+        <button class="palette-close" type="button" data-close aria-label="ปิดการค้นหา"><kbd>Esc</kbd></button>
+      </div>
+      <div class="palette-body" id="palette-list" role="listbox" aria-label="ผลการค้นหา"></div>
+      <div class="palette-foot" aria-hidden="true">
+        <span><kbd>↑</kbd><kbd>↓</kbd> เลือก</span>
+        <span><kbd>Enter</kbd> เปิด</span>
+        <span><kbd>Esc</kbd> ปิด</span>
+        <span><kbd>Ctrl</kbd><kbd>K</kbd> หรือ <kbd>/</kbd> เปิดค้นหาได้ทุกหน้า</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- 1) เนื้อหา  2) ไอคอน  3) แอป -->
+  <script src="data/portal-data.js"></script>
+  <script src="assets/js/icons.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
